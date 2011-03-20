@@ -75,6 +75,12 @@
 // The pin connected to the emergency stop
 #define ESTOP_PIN Pin(PortE,4)
 
+// --- Camera Trigger ---
+// Define as 1 if the camera trigger is present, 0 if not.
+#define HAS_CAMERA 1
+// The pin that drives the camera trigger
+#define CAMERA_PIN Pin(PortC,3)
+
 // --- Axis configuration ---
 // Define the number of stepper axes supported by the board.  The axes are
 // denoted by X, Y, Z, A and B.

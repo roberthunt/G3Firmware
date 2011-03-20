@@ -298,6 +298,18 @@ void runCommandSlice() {
 					uint16_t toolTimeout = (uint16_t)pop16();
 					tool_wait_timeout.start(toolTimeout*1000000L);
 				}
+			} else if (command == HOST_CMD_TRIGGER_CAMERA) {
+				if (command_buffer.getLength() >= 2) {
+					command_buffer.pop();
+					uint8_t cameraStatus = command_buffer.pop();
+					if (cameraStatus & 1) {
+						// Enable the camera trigger
+						Motherboard::getBoard().toggleCameraTrigger(true);
+					} else {
+						// Disable the camera trigger
+						Motherboard::getBoard().toggleCameraTrigger(false);
+					}
+				}
 			} else if (command == HOST_CMD_TOOL_COMMAND) {
 				if (command_buffer.getLength() >= 4) { // needs a payload
 					uint8_t payload_length = command_buffer[3];

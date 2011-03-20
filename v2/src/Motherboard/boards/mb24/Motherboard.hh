@@ -82,6 +82,9 @@ public:
 
 	/// Perform the timer interrupt routine.
 	void doInterrupt();
+
+	/// Toggle the camera trigger state
+	void toggleCameraTrigger(bool state);
 };
 
 #endif // BOARDS_RRMBV12_MOTHERBOARD_HH_

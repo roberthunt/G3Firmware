@@ -81,6 +81,9 @@ void Motherboard::reset() {
 	TIMSK2 = 0x01; // OVF flag on
 	// Configure the debug pin.
 	DEBUG_PIN.setDirection(true);
+	// Init Camera Trigger
+	CAMERA_PIN.setDirection(true); // Output
+	CAMERA_PIN.setValue(false); // Enable internal pulldown
 //	lcd.begin(16,4);
 //	lcd.clear();
 //	lcd.home();
@@ -180,4 +183,7 @@ ISR(TIMER2_OVF_vect) {
 			DEBUG_PIN.setValue(true);
 		}
 	}
+}
+void Motherboard::toggleCameraTrigger(bool state) {
+	CAMERA_PIN.setValue(state);
 }

@@ -82,6 +82,8 @@
 
 #define HOST_CMD_DEBUG_ECHO        0x70
 
+#define HOST_CMD_TRIGGER_CAMERA    150
+
 // These are our query commands from the host
 #define SLAVE_CMD_VERSION                0
 #define SLAVE_CMD_INIT                   1
